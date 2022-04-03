@@ -9,7 +9,7 @@ pipeline{
 	    
                steps{
 		 echo 'cloning..'
-                 git 'https://github.com/timjar3/Pro_1Java_app_CI_CD.git'
+                 git 'https://github.com/timjar3/Pro_2_CICD_GCP.git'
               }
           }
           stage('Compile'){
@@ -71,9 +71,13 @@ pipeline{
 	    }
         }
 	      
-	      stage('docker_deploy'){
-		      steps{ansiblePlaybook credentialsId: 'Centi_slave', disableHostKeyChecking: true, extras: "-e BUILD_NUMBER=${env.BUILD_NUMBER}", installation: 'ansbile', inventory: 'webserver.inv', playbook: 'jenkiplaybook.yml'
+	      stage('Deploy to Kubernetes Cluster on GKE'){
+		      kubernetesDeploy(
+                  configs:'Deploy_Serv_Vol.yml',
+                  kubeconfigID:'KUBERNETES_CLUSTER_CONFIG',
+                  enableConfigSubstitution: true
+              )
 	    }
-	  }
+	  
     }
 }
