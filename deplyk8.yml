@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: add_deploy
+  name: adddeploy
 spec: 
   minReadySeconds: 10
   replicas: 3
