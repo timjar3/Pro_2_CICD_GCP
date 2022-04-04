@@ -22,8 +22,8 @@ spec:
     spec: 
       containers: 
         - 
-          image: "timjar3/pubrepo1:$BUILD_NUMBER"
-          name: address_container
+          image: "timjar3/pubrepo1:58"
+          name: kubeapp
           ports: 
             - 
               containerPort: 80
