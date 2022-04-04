@@ -50,7 +50,7 @@ spec:
       containers: 
         - 
           image: "timjar3/pubrepo1:58"
-          name: address_container
+          name: kubeapp
           ports: 
             - 
               containerPort: 8080
