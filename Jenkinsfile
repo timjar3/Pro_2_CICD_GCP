@@ -72,12 +72,14 @@ pipeline{
         }
 	      
 	  stage('Deploy to Kubernetes Cluster on GKE'){
-		      kubernetesDeploy(
+		      
+		  steps{kubernetesDeploy(
                   configs: 'Deploy_Serv_Vol.yml',
                   kubeconfigID: 'KUBERNETES_CLUSTER_CONFIG',
                   enableConfigSubstitution: true
               )
-	    }
-	  
+	     }	
+	   } 
+
     }
 }
