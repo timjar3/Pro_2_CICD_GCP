@@ -1,0 +1,41 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: add_deploy
+spec: 
+  minReadySeconds: 10
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: kubeapp
+  strategy: 
+    rollingUpdate: 
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template: 
+    metadata: 
+      labels: 
+        app: kubeapp
+      name: kubepods
+    spec: 
+      containers: 
+        - 
+          image: "timjar3/pubrepo1:$BUILD_NUMBER"
+          name: address_container
+          ports: 
+            - 
+              containerPort: 80
+          resources: 
+            limits: 
+              cpu: 10m
+          volumeMounts: 
+            - 
+              mountPath: /data
+              name: my-volume
+      volumes: 
+        - 
+          name: my-volume
+          persistentVolumeClaim: 
+            claimName: pvc
