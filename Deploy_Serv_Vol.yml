@@ -29,7 +29,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: add_deploy
+  name: adddeploy
 spec: 
   minReadySeconds: 10
   replicas: 3
@@ -49,7 +49,7 @@ spec:
     spec: 
       containers: 
         - 
-          image: "timjar3/pubrepo1:$BUILD_NUMBER"
+          image: "timjar3/pubrepo1:58"
           name: address_container
           ports: 
             - 
