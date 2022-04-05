@@ -49,7 +49,11 @@ spec:
     spec: 
       containers: 
         - 
+<<<<<<< HEAD
           image: "timjar3/pubrepo1:58"
+=======
+          image: timjar3/pubrepo1:58
+>>>>>>> fb20c265721d72a9ba035203e96457aa8de499b6
           name: kubeapp
           ports: 
             - 
@@ -91,5 +95,5 @@ spec:
   scaleTargetRef: 
     apiVersion: apps/v1
     kind: Deployment
-    name: add_deploy
+    name: adddeploy
   targetCPUUtilizationPercentage: 10
